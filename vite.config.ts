@@ -11,22 +11,44 @@ if (process.env.TEMPO === "true") {
 }
 
 export default defineConfig({
+  // Set the base URL for GitHub Pages deployment
   base: process.env.NODE_ENV === "development" ? "/" : "/Survey/",
+
+  // Optimization for dependencies
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
+
   plugins: [
+    // React plugin
     react({
       plugins: conditionalPlugins,
     }),
+
+    // Tempo DevTools plugin
     tempo(),
   ],
+
   resolve: {
+    // Symlink handling
     preserveSymlinks: true,
+
+    // Alias for easy imports
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+  build: {
+    // Ensure correct paths for assets in the production build
+    assetsDir: "assets",
+    sourcemap: false, // Set to false for cleaner builds
+    publicPath: "/Survey/", // Explicitly set the public path for assets
+
+    // Ensure correct output directory
+    outDir: "dist",
+  },
+
   server: {
     allowedHosts: true,
   },
