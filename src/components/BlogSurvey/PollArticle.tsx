@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 interface PollArticleProps {
   imageUrl?: string;
@@ -14,48 +13,10 @@ const PollArticle: React.FC<PollArticleProps> = ({
   description = "The race for the lone congressional seat of Occidental Mindoro is becoming increasingly competitive, with former Congresswoman Nene Sato currently leading the pack.",
   imageFirst = true,
 }) => {
-  const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, threshold: 0.2 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const imageVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.3,
-        ease: "easeOut",
-      },
-    },
-  };
 
   const ImageSection = (
-    <motion.div
-      className="w-full h-auto overflow-hidden bg-gray-100 rounded-xl shadow-md group"
-      variants={imageVariants}
-      initial="hidden"
-      animate={controls}
-    >
+    <div className="w-full h-auto overflow-hidden bg-gray-100 rounded-xl shadow-md group">
       <div className="relative overflow-hidden">
         <img
           src={imageUrl}
@@ -71,16 +32,11 @@ const PollArticle: React.FC<PollArticleProps> = ({
         <div className="w-1/3 bg-red-600"></div>
         <div className="w-1/3 bg-yellow-400"></div>
       </div>
-    </motion.div>
+    </div>
   );
 
   const TextSection = (
-    <motion.div
-      className="w-full px-6 py-12 md:px-12 lg:px-16 bg-white flex flex-col justify-center"
-      variants={textVariants}
-      initial="hidden"
-      animate={controls}
-    >
+    <div className="w-full px-6 py-12 md:px-12 lg:px-16 bg-white flex flex-col justify-center">
       <div className="mb-4 inline-block">
         <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mr-2">
           Election 2025
@@ -99,7 +55,7 @@ const PollArticle: React.FC<PollArticleProps> = ({
           <p key={index}>{paragraph}</p>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 
   return (
