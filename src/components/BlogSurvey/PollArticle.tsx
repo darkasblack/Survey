@@ -21,6 +21,8 @@ const PollArticle: React.FC<PollArticleProps> = ({
   useEffect(() => {
     if (inView) {
       controls.start("visible");
+    } else {
+      controls.start("hidden");
     }
   }, [controls, inView]);
 
@@ -103,7 +105,13 @@ const PollArticle: React.FC<PollArticleProps> = ({
   );
 
   return (
-    <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
+    <motion.div
+      ref={ref}
+      className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100"
+      variants={imageFirst ? imageVariants : textVariants}
+      initial="hidden"
+      animate={controls}
+    >
       {imageFirst ? (
         <>
           <div className="w-full md:w-1/2">
@@ -125,7 +133,7 @@ const PollArticle: React.FC<PollArticleProps> = ({
           </div>
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 

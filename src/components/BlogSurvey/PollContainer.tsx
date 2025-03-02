@@ -56,15 +56,18 @@ const PollContainer: React.FC<PollContainerProps> = ({
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
+    } else {
+      controls.start("hidden");
     }
   }, [isInView, controls]);
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.3,
+        duration: 0.5,
       },
     },
   };
@@ -100,7 +103,12 @@ const PollContainer: React.FC<PollContainerProps> = ({
         {items.length === 0 ? (
           <div>No poll items available.</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+          >
             {items.map((item, index) => (
               <PollArticle
                 key={item.id}
@@ -110,7 +118,7 @@ const PollContainer: React.FC<PollContainerProps> = ({
                 imageFirst={item.imageFirst}
               />
             ))}
-          </div>
+          </motion.div>
         )}
 
         {items.map((item, index) => (
