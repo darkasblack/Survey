@@ -16,20 +16,20 @@ const PollArticle: React.FC<PollArticleProps> = ({
 }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: false });
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
+      controls.start({ opacity: 1, y: 0 });
     } else {
-      controls.start("hidden");
+      controls.start({ opacity: 0, y: 50 });
     }
   }, [controls, inView]);
 
   const imageVariants = {
-    hidden: { opacity: 100, y: 50 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
-      opacity: 100,
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -39,9 +39,9 @@ const PollArticle: React.FC<PollArticleProps> = ({
   };
 
   const textVariants = {
-    hidden: { opacity: 100, y: 30 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
-      opacity: 100,
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
@@ -108,7 +108,6 @@ const PollArticle: React.FC<PollArticleProps> = ({
     <motion.div
       ref={ref}
       className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100"
-      variants={imageFirst ? imageVariants : textVariants}
       initial="hidden"
       animate={controls}
     >
