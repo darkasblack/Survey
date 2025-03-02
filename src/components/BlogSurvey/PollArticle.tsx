@@ -51,12 +51,12 @@ const PollArticle: React.FC<PollArticleProps> = ({
 
   const ImageSection = (
     <motion.div
-      className="w-full h-auto overflow-hidden bg-gray-100 rounded-xl shadow-md group"
+      className="w-full min-h-[200px] overflow-hidden bg-gray-100 rounded-xl shadow-md group"
       variants={imageVariants}
-      initial="hidden"
+      initial="visible"
       animate={controls}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
         <img
           src={imageUrl}
           alt={title}
@@ -76,9 +76,9 @@ const PollArticle: React.FC<PollArticleProps> = ({
 
   const TextSection = (
     <motion.div
-      className="w-full px-6 py-12 md:px-12 lg:px-16 bg-white flex flex-col justify-center"
+      className="w-full px-4 py-6 md:px-12 md:py-12 bg-white flex flex-col justify-center"
       variants={textVariants}
-      initial="hidden"
+      initial="visible"
       animate={controls}
     >
       <div className="mb-4 inline-block">
@@ -109,17 +109,13 @@ const PollArticle: React.FC<PollArticleProps> = ({
     >
       {imageFirst ? (
         <>
-          <div className="w-full md:w-1/2">{ImageSection}</div>
+          <div className="w-full md:w-1/2 flex-shrink-0">{ImageSection}</div>
           <div className="w-full md:w-1/2">{TextSection}</div>
         </>
       ) : (
         <>
-          <div className="w-full md:w-1/2 order-2 md:order-1">
-            {TextSection}
-          </div>
-          <div className="w-full md:w-1/2 order-1 md:order-2">
-            {ImageSection}
-          </div>
+          <div className="w-full md:w-1/2 order-2 md:order-1">{TextSection}</div>
+          <div className="w-full md:w-1/2 order-1 md:order-2 flex-shrink-0">{ImageSection}</div>
         </>
       )}
     </div>
