@@ -16,7 +16,7 @@ const PollArticle: React.FC<PollArticleProps> = ({
 }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, threshold: 0.2 });
+  const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (inView) {
@@ -103,19 +103,26 @@ const PollArticle: React.FC<PollArticleProps> = ({
   );
 
   return (
-    <div
-      ref={ref}
-      className="w-full flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100"
-    >
+    <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100">
       {imageFirst ? (
         <>
-          <div className="w-full md:w-1/2 flex-shrink-0">{ImageSection}</div>
-          <div className="w-full md:w-1/2">{TextSection}</div>
+          <div className="w-full md:w-1/2">
+            <img src={imageUrl} alt={title} className="w-full h-auto" />
+          </div>
+          <div className="w-full md:w-1/2 p-4">
+            <h2 className="text-xl font-bold">{title}</h2>
+            <p className="text-gray-600">{description}</p>
+          </div>
         </>
       ) : (
         <>
-          <div className="w-full md:w-1/2 order-2 md:order-1">{TextSection}</div>
-          <div className="w-full md:w-1/2 order-1 md:order-2 flex-shrink-0">{ImageSection}</div>
+          <div className="w-full md:w-1/2 p-4">
+            <h2 className="text-xl font-bold">{title}</h2>
+            <p className="text-gray-600">{description}</p>
+          </div>
+          <div className="w-full md:w-1/2">
+            <img src={imageUrl} alt={title} className="w-full h-auto" />
+          </div>
         </>
       )}
     </div>
