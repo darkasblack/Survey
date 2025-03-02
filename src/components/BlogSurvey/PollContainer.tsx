@@ -89,12 +89,9 @@ const PollContainer: React.FC<PollContainerProps> = ({
         </div>
       </div>
 
-      <motion.div
+      <div
         ref={containerRef}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
@@ -248,17 +245,9 @@ const PollContainer: React.FC<PollContainerProps> = ({
         </div>
 
         {items.map((item, index) => (
-          <motion.div
+          <div
             id={`poll-${item.id}`}
             key={item.id}
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, ease: "easeOut" },
-              },
-            }}
             className="mb-24 last:mb-12 bg-white rounded-xl shadow-lg overflow-hidden scroll-mt-24"
           >
             <div className="bg-gradient-to-r from-blue-600 to-blue-800 py-4 px-6">
@@ -280,9 +269,9 @@ const PollContainer: React.FC<PollContainerProps> = ({
                 imageFirst={item.imageFirst}
               />
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Call to action */}
       <div className="bg-gradient-to-r from-blue-600 via-red-500 to-yellow-400 rounded-2xl shadow-xl overflow-hidden my-16 mx-4 sm:mx-8 lg:mx-auto lg:max-w-7xl">
