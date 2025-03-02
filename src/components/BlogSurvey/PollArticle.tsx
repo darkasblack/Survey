@@ -108,8 +108,8 @@ const PollArticle: React.FC<PollArticleProps> = ({
     <motion.div
       ref={ref}
       className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100"
-      initial="hidden"
-      animate={controls}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
     >
       {imageFirst ? (
         <>
