@@ -64,7 +64,7 @@ const PollContainer: React.FC<PollContainerProps> = ({
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
-      opacity: 1,
+      opacity: 100,
       y: 0,
       transition: {
         duration: 0.5,
