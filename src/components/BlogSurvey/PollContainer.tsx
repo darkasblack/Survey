@@ -97,7 +97,7 @@ const PollContainer: React.FC<PollContainerProps> = ({
 
       <div
         ref={containerRef}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+        className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-16"
       >
         {/* Check if items are available */}
         {items.length === 0 ? (
