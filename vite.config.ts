@@ -12,7 +12,7 @@ if (process.env.TEMPO === "true") {
 
 export default defineConfig({
   // Set the base URL for GitHub Pages deployment
-  base: "/",
+  base: "./",
 
   // Optimization for dependencies
   optimizeDeps: {
