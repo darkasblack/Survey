@@ -107,7 +107,7 @@ const PollArticle: React.FC<PollArticleProps> = ({
   return (
     <motion.div
       ref={ref}
-      className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100"
+      className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100 visible-opacity"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
     >

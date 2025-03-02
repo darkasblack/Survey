@@ -104,7 +104,7 @@ const PollContainer: React.FC<PollContainerProps> = ({
           <div>No poll items available.</div>
         ) : (
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 visible-opacity"
             variants={containerVariants}
             initial="visible"
             animate={controls}
