@@ -16,10 +16,11 @@ touch .nojekyll
 # echo 'www.example.com' > CNAME
 
 git init
+git checkout -b main
 git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/darkasblack/Survey.git main:gh-pages
+git push -f git@github.com:darkasblack/Survey.git main:gh-pages
 
 cd -
