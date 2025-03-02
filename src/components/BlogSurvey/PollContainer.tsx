@@ -62,7 +62,7 @@ const PollContainer: React.FC<PollContainerProps> = ({
   }, [isInView, controls]);
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
@@ -106,7 +106,7 @@ const PollContainer: React.FC<PollContainerProps> = ({
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
             variants={containerVariants}
-            initial="hidden"
+            initial="visible"
             animate={controls}
           >
             {items.map((item, index) => (
