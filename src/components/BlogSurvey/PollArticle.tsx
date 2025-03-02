@@ -27,9 +27,9 @@ const PollArticle: React.FC<PollArticleProps> = ({
   }, [controls, inView]);
 
   const imageVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 100, y: 50 },
     visible: {
-      opacity: 1,
+      opacity: 100,
       y: 0,
       transition: {
         duration: 0.8,
@@ -39,9 +39,9 @@ const PollArticle: React.FC<PollArticleProps> = ({
   };
 
   const textVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 100, y: 30 },
     visible: {
-      opacity: 1,
+      opacity: 100,
       y: 0,
       transition: {
         duration: 0.6,
