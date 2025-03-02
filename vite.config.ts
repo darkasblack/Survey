@@ -12,7 +12,7 @@ if (process.env.TEMPO === "true") {
 
 export default defineConfig({
   // Set the base URL for GitHub Pages deployment
-  base: process.env.NODE_ENV === "development" ? "/" : "/Survey/",
+  base: "/Survey/",
 
   // Optimization for dependencies
   optimizeDeps: {
@@ -43,7 +43,7 @@ export default defineConfig({
     // Ensure correct paths for assets in the production build
     assetsDir: "assets",
     sourcemap: false, // Set to false for cleaner builds
-    publicPath: "/Survey/", // Explicitly set the public path for assets
+    // publicPath is not needed as base handles this
 
     // Ensure correct output directory
     outDir: "dist",
