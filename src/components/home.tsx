@@ -14,15 +14,9 @@ const Home: React.FC = () => {
   };
 
   return (
-    <motion.div
-      className="min-h-screen bg-white"
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageVariants}
-    >
+    <div className="min-h-screen bg-white">
       <PollContainer />
-    </motion.div>
+    </div>
   );
 };
 

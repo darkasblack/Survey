@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 interface PollArticleProps {
   imageUrl?: string;
